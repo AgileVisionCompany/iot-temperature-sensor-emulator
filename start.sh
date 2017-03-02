@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 EP_SUBDOMAIN=a2xhtdl1q1y82
 REGION=us-west-2
 CERT_NAME=test1

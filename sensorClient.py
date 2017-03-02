@@ -14,6 +14,7 @@
  * permissions and limitations under the License.
  */
  '''
+import json
 import random
 from datetime import datetime
 
@@ -158,7 +159,11 @@ def time_coef():
 
 
 while True:
-    myAWSIoTMQTTClient.publish("aviot/temperature/value", BASE + random.uniform(-DELTA, DELTA) + 10 * time_coef() - 10,
-                               1)
+    myAWSIoTMQTTClient.publish(
+        "aviot/temperature",
+        json.dumps({
+            "value": BASE + random.uniform(-DELTA, DELTA) + 10 * time_coef() - 10}
+        ),
+        1)
     loopCount += 1
     time.sleep(60)
